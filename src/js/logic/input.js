@@ -6,6 +6,7 @@ export function isInputValid(userInput) {
 export function cleanUserInput(userInput) {
   console.log(
     userInput
+      .trim()
       .split(",")
       .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase()),
   );

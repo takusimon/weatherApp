@@ -67,9 +67,8 @@ export default (function () {
   SearchButton.textContent = "Search";
 
   const SearchErr = document.createElement("span");
-  SearchErr.className = "error";
   SearchErr.id = "search-error";
-  SearchErr.textContent = "hi";
+  SearchErr.textContent = "";
 
   searchForm.append(searchLabel,searchInput,SearchButton);
   searchWrap.append(searchForm,SearchErr);
