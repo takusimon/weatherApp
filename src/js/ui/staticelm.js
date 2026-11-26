@@ -11,16 +11,19 @@ export default (function () {
   brand.textContent = "Weather";
   const brandMark = document.createElement("span");
   brandMark.id = "brand-mark";
- 
+
   brandMark.append(brandIcon);
 
   brand.prepend(brandMark);
-  
+
   const tagLine = document.createElement("p");
   tagLine.id = "tag-line";
   tagLine.textContent = "Your day,beautifully forcasted";
 
-  topBar.append(brand,tagLine);
+  topBar.append(brand, tagLine);
 
-  body.append(topBar);
+  const content = document.createElement("section");
+  content.id = "content";
+
+  body.append(topBar,content);
 })();
