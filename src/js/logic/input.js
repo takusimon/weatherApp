@@ -3,7 +3,7 @@ function getUserInput() {
       }
 
       function isInputValid(userInput) {
-        const pattern = new RegExp("^[a-zA-Z\s]+,\s*[a-zA-Z\s]+$");
+        const pattern = new RegExp("^[a-zA-Zs]+,s*[a-zA-Zs]+$");
         console.log(pattern.test(userInput));
       }
 

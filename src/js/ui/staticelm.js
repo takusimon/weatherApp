@@ -1,8 +1,9 @@
-import brandIcon from "./brandIcon.js";
+import svgIcons from "./svgIcons.js";
 
 export default (function () {
   const body = document.querySelector("body");
 
+  const [brandIcon,searchIcon] = svgIcons;
   //Begin Header Section
   const topBar = document.createElement("header");
   topBar.id = "topbar";
@@ -44,7 +45,32 @@ export default (function () {
   
   intro.append(eyebrow,heading,introCopy);
 
-  content.append(intro)
+  
 
-  body.append(topBar,content);
+  const searchWrap = document.createElement("div");
+  searchWrap.id = "search-wrap";
+
+  const searchForm = document.createElement("form");
+  searchForm.id = "search-form";
+  searchForm.noValidate = true;
+
+  const searchLabel = document.createElement("label");
+  searchLabel.id = "search-label"
+  searchLabel.htmlFor = "search-input";
+  searchLabel.append(searchIcon);
+
+  const searchInput = document.createElement("input");
+  searchInput.id = "search-input";
+  searchInput.type = "search";
+  searchInput.placeholder = "City,Country/State e.g. Paris,France or Frisco,Texas";
+
+  const SearchButton = document.createElement("button");
+  SearchButton.id = "search-button";
+  SearchButton.textContent = "Search";
+
+  searchForm.append(searchLabel,searchInput,SearchButton);
+  searchWrap.appendChild(searchForm);
+
+  content.append(intro,searchWrap)
+  body.append(topBar,content,);
 })();

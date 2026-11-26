@@ -92,3 +92,48 @@ body {
 #copy-intro {
     font-weight: 400;
 }
+
+
+#search-wrap {
+    margin-top:2rem;
+    height:auto;
+    width:min-content;
+    justify-self: center;
+}
+
+#search-form {
+    background-color: white;
+    padding:.5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    gap:.2rem;
+}
+
+
+
+#search-input {
+    width:50vw;
+    height:4ch;
+    border:none;
+    font-family: "DM Sans 9pt",system-ui;
+}
+
+#search-input:focus {
+    outline:2px solid var(--tertiary);
+}
+
+#search-button {
+    height:5ch;
+    width:10ch;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--tertiary);
+    font-family: "DM Sans 9pt",system-ui;
+    font-weight:600;
+    font-size: .8rem;
+    color:white;
+}
+
+
+
