@@ -1,8 +1,6 @@
 import svgIcons from "./svgIcons.js";
 
 export default (function () {
-  const body = document.querySelector("body");
-
   const [brandIcon,searchIcon] = svgIcons;
   //Begin Header Section
   const topBar = document.createElement("header");
@@ -68,9 +66,15 @@ export default (function () {
   SearchButton.id = "search-button";
   SearchButton.textContent = "Search";
 
-  searchForm.append(searchLabel,searchInput,SearchButton);
-  searchWrap.appendChild(searchForm);
+  const SearchErr = document.createElement("span");
+  SearchErr.className = "error";
+  SearchErr.id = "search-error";
+  SearchErr.textContent = "hi";
 
-  content.append(intro,searchWrap)
-  body.append(topBar,content,);
+  searchForm.append(searchLabel,searchInput,SearchButton);
+  searchWrap.append(searchForm,SearchErr);
+
+  content.append(intro,searchWrap);
+
+  return [topBar,content];
 })();

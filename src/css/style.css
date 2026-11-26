@@ -99,6 +99,8 @@ body {
     height:auto;
     width:min-content;
     justify-self: center;
+    display:flex;
+    flex-flow: column;
 }
 
 #search-form {
@@ -110,6 +112,9 @@ body {
     gap:.2rem;
 }
 
+#search-form:user-invalid {
+    filter: drop-shadow(0 0 0.3rem red);
+}
 
 
 #search-input {
@@ -135,5 +140,13 @@ body {
     color:white;
 }
 
-
+#search-error {
+    align-self: center;
+    margin-top: .2rem;
+    font-family: "DM Sans 9pt",system-ui;
+    font-size:1rem;
+    font-weight: 800;
+    word-spacing:.2rem;
+    letter-spacing:.1rem;
+}
 
