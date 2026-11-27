@@ -1,7 +1,7 @@
-import svgIcons from "./svgIcons.js";
+import {brandIcon,searchIcon,locationIcon,humidityIcon,windIcon} from "./svgIcons.js";
 
 export default (function () {
-  const [brandIcon,searchIcon] = svgIcons;
+  
   //Begin Header Section
   const topBar = document.createElement("header");
   topBar.id = "topbar";
@@ -73,10 +73,116 @@ export default (function () {
   searchForm.append(searchLabel,searchInput,SearchButton);
   searchWrap.append(searchForm,SearchErr);
 
+  
+  
+ //weather Content Section
   const weatherContent = document.createElement("div");
   weatherContent.id = "weather-content";
 
+  const heroCard = document.createElement("section");
+  heroCard.id = "hero-card";
+
+  const heroCopy = document.createElement("div");
+  heroCopy.id = "hero-copy";
+  
+  const placeRow = document.createElement("div");
+  placeRow.id = "place-row";
+
+  const locationMark = document.createElement("span");
+  locationMark.id = "location-mark";
+  locationMark.append(locationIcon);
+
+  const heroLocation = document.createElement("span");
+  heroLocation.id = "hero-location";
+  heroLocation.textContent = "Bulawayo,Zimbabwe";
+
+  const heroCity = document.createElement("h2");
+  heroCity.id = "hero-city";
+  heroCity.textContent = "Bulawayo"
+
+  const heroDate = document.createElement("p");
+  heroDate.id = "hero-date";
+  heroDate.textContent = "Thursday,November 26"
+
+  const temperatureRow = document.createElement("div");
+  temperatureRow.id = "temperature-row";
+
+  const temperature = document.createElement("span");
+  temperature.id = "temperature";
+  temperature.textContent = `68°`;
+
+  const conditionsContainer = document.createElement("div");
+  conditionsContainer.id = "conditions-container";
+
+  const heroConditions = document.createElement("p");
+  heroConditions.id = "hero-conditions";
+  heroConditions.textContent = "Overcast";
+
+  const heroFeels = document.createElement("p");
+  heroFeels.id = "hero-feels";
+  heroFeels.textContent = `Feels like ${51}°`;
+
+  const heroWeatherImg = document.createElement("div");
+  heroWeatherImg.id = "hero-weather-img-cont";
+  //Details
+  const detailsGrid = document.createElement("section");
+  detailsGrid.id = "details-grid";
+
+  const humidityCard = document.createElement("div");
+  humidityCard.className = "detail-card";
+
+  const humidityIconCont = document.createElement("span");
+  humidityIconCont.className = "detail-icon";
+  humidityIconCont.append(humidityIcon);
+
+  const detailsCont = document.createElement("div");
+  detailsCont.id = "details-cont";
+
+  const humidityLabel = document.createElement("p");
+  humidityLabel.className = "detail-label";
+  humidityLabel.textContent = "HUMIDITY";
+
+  const humidityValue = document.createElement("p");
+  humidityValue.className = "detail-value";
+  humidityValue.textContent = "84%";
+
+
+  detailsCont.append(humidityLabel,humidityValue);
+  humidityCard.append(humidityIconCont,detailsCont);
+
+  const windCard = document.createElement("div");
+  windCard.className = "detail-card";
+
+  const windIconCont = document.createElement("span");
+  windIconCont.className = "detail-icon";
+  windIconCont.append(windIcon);
+
+  const windDetailsCont = document.createElement("div");
+  windDetailsCont.id = "details-cont";
+
+  const windLabel = document.createElement("p");
+  windLabel.className = "detail-label";
+  windLabel.textContent = "WIND";
+
+  const windValue = document.createElement("p");
+  windValue.className = "detail-value";
+  windValue.textContent = "84%";
+
+  windDetailsCont.append(windLabel,windValue);
+  windCard.append(windIconCont,windDetailsCont);
+
+  detailsGrid.append(humidityCard,windCard);
+
+  conditionsContainer.append(heroConditions,heroFeels);
+  temperatureRow.append(temperature, conditionsContainer)
+  placeRow.append(locationMark,heroLocation);
+  heroCopy.append(placeRow,heroCity,heroDate, temperatureRow);
+  heroCard.append(heroCopy,heroWeatherImg);
+
+
+  weatherContent.append(heroCard,detailsGrid);
+
    content.append(intro,searchWrap,weatherContent);
 
-  return [topBar,content];
+  return {topBar,content};
 })();

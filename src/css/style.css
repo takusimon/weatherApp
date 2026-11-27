@@ -164,6 +164,8 @@ body {
     margin-top:1.5rem;
     display: flex;
     flex-flow: column nowrap;
+    align-items: center;
+    gap:1rem;
     width:100%;
 }
 
@@ -173,14 +175,14 @@ body {
     justify-content: center;
 }
 #hero-weather-img-cont {
-    width:30%;
+    width:25%;
     background-color: var(--secondary);
     border-radius: 0 20px 20px 0;
 }
 #hero-copy {
     background-color: white;
-    width:50%;
-    height: auto;
+    width:40%;
+    height:40vh;
     padding:3rem 3.5rem;
     font-family: var(--dmsans);
     font-size:.75rem;
@@ -227,4 +229,50 @@ body {
     font-family: var(--dmsans);
     font-weight: 400;
     color:var(--grey-text);
+}
+
+#details-grid {
+    display: flex;
+    width:100%;
+    padding:0 18% 0 18%;
+    gap:1rem;
+}
+
+.detail-card {
+    background-color: white;
+    width:20%;
+    padding:1.125rem;
+    display:flex;
+    border-radius: 10px;
+    align-items: center;
+    gap:1rem;
+}
+
+.detail-icon {
+    height:2.5rem;
+    width:2.5rem;
+    background-color: var(--primary);
+    border-radius: 10px;
+    display:grid;
+    align-content: center;
+    justify-items: center;
+}
+
+.detail-label,.detail-note {
+    font-family: var(--dmsans);
+    font-size:.625rem;
+    color: var(--grey-text);
+    font-weight:600;
+    letter-spacing: .1rem;
+}
+
+.detail-value {
+    font-family: var(--dmsans);
+    font-size:1.025rem;
+    font-weight: 700;
+}
+
+.detail-note {
+    font-weight:400;
+    letter-spacing: normal;
 }

@@ -2,7 +2,7 @@ import weatherUi from "../ui/staticelm.js";
 import { cleanUserInput, isInputValid } from "./input.js";
 import { fetchTempData, parseFetchedData } from "./data.js";
 import { renderWeather } from "../ui/renderWeather.js";
-const [topBar,content] = weatherUi;
+const {content} = weatherUi;
 
 const searchInput = content.querySelector("#search-input");
 const searchError = content.querySelector("#search-error");

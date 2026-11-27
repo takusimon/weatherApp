@@ -1,12 +1,12 @@
 import { cleanUserInput } from "../logic/input.js";
 import {format} from "date-fns";
-import svgIcons from "./svgIcons.js";
+import {locationIcon} from "./svgIcons.js";
 
 export function renderWeather (unitData){
    //weather Content Section
   const weatherContent = document.querySelector("#weather-content");
   weatherContent.textContent = "";
-  const [brandIcon,searchIcon,locationIcon] = svgIcons;
+  
 
   const [city,countryOrState] = cleanUserInput(unitData.address)
   const today = unitData.days[0];
@@ -56,6 +56,8 @@ export function renderWeather (unitData){
 
   const heroWeatherImg = document.createElement("div");
   heroWeatherImg.id = "hero-weather-img-cont";
+
+  
 
   conditionsContainer.append(heroConditions,heroFeels);
   temperatureRow.append(temperature, conditionsContainer)
