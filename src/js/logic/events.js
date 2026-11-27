@@ -6,6 +6,9 @@ const [topBar,content] = weatherUi;
 const searchInput = content.querySelector("#search-input");
 const searchError = content.querySelector("#search-error");
 const searchButton = content.querySelector("#search-button");
+const form = content.querySelector("#search-form");
+
+let parsedWeatherData;
 
 searchInput.addEventListener("input",()=>{
   if (isInputValid(searchInput.value)){
@@ -22,6 +25,7 @@ searchButton.addEventListener("click",async (event)=> {
     const cleanedInput = cleanUserInput(searchInput.value);
     let weatherData;
     searchError.textContent = "";
+    form.reset();
     //loading animation
     try {
       console.log("Fetching Data...");
@@ -31,14 +35,21 @@ searchButton.addEventListener("click",async (event)=> {
       return;
     }
     console.log("Parsing Data...")
-    const parsedWeatherData = await parseFetchedData(weatherData);
-
+    parsedWeatherData = await parseFetchedData(weatherData);
+    //Stop Animation
+    //Render Content
     console.log(parsedWeatherData);
+  } else {
+    showInputError();
   }
 })
 
 function showInputError(){
-  searchError.textContent = "Seperate the City from Country/State with a comma";
+  if (searchInput.value.length===0){
+    searchError.textContent = "Input is Empty!";
+  } else if (!isInputValid(searchInput.value)){
+    searchError.textContent = "Seperate the City from Country/State with a comma";
+  }
 }
 
 export default weatherUi;

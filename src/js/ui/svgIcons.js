@@ -35,10 +35,24 @@ export default (function () {
 
   const searchD ="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" ;
 
+
   searchIconPath.setAttribute("d",searchD);
 
   searchIcon.append(searchIconPath);
-  
-  return [brandIcon,searchIcon];
-})();
 
+  const locationIcon = document.createElementNS(svgNS,"svg");
+  locationIcon.id = "location-icon"
+  locationIcon.setAttribute("viewBox","0 0 24 24");
+  locationIcon.setAttribute("width","1rem");
+  locationIcon.setAttribute("height","1rem");
+
+  const locationIconPath = document.createElementNS(svgNS,"path");
+
+  const locationD = "M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2M12,4A5,5 0 0,0 7,9C7,10 7,12 12,18.71C17,12 17,10 17,9A5,5 0 0,0 12,4Z"
+
+  locationIconPath.setAttribute("d",locationD);
+
+  locationIcon.append(locationIconPath);
+  
+  return [brandIcon,searchIcon,locationIcon];
+})();
