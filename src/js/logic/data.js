@@ -1,9 +1,9 @@
 export async function fetchTempData(cleanUserInput) {
   const [city, countryOrState] = cleanUserInput;
 
-  const metricUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${countryOrState}?unitGroup=metric&include=current,days&elements=datetime,tempmax,tempmin,temp,humidity,conditions,sunrise,sunset&contentType=json`;
+  const metricUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${countryOrState}?unitGroup=metric&include=current,days&elements=datetime,windspeed,feelslike,precip,tempmax,tempmin,temp,humidity,conditions,sunrise,sunset&contentType=json`;
 
-  const imperialUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${countryOrState}?unitGroup=us&include=current,days&elements=datetime,tempmax,tempmin,temp,humidity,conditions,sunrise,sunset&contentType=json`;
+  const imperialUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${countryOrState}?unitGroup=us&include=current,days&elements=datetime,windspeed,feelslike,precip,tempmax,tempmin,temp,humidity,conditions,sunrise,sunset&contentType=json`;
 
   const fetchedMetricPromise = fetch(metricUrl);
   const fetchedImperialPromise = fetch(imperialUrl);

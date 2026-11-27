@@ -1,7 +1,7 @@
 import svgIcons from "./svgIcons.js";
 
 export default (function () {
-  const [brandIcon,searchIcon,locationIcon] = svgIcons;
+  const [brandIcon,searchIcon] = svgIcons;
   //Begin Header Section
   const topBar = document.createElement("header");
   topBar.id = "topbar";
@@ -73,65 +73,10 @@ export default (function () {
   searchForm.append(searchLabel,searchInput,SearchButton);
   searchWrap.append(searchForm,SearchErr);
 
-  //weather Content Section
   const weatherContent = document.createElement("div");
   weatherContent.id = "weather-content";
 
-  const heroCard = document.createElement("section");
-  heroCard.id = "hero-card";
-
-  const heroCopy = document.createElement("div");
-  heroCopy.id = "hero-copy";
-  
-  const placeRow = document.createElement("div");
-  placeRow.id = "place-row";
-
-  const locationMark = document.createElement("span");
-  locationMark.id = "location-mark";
-  locationMark.append(locationIcon);
-
-  const heroLocation = document.createElement("span");
-  heroLocation.id = "hero-location";
-  heroLocation.textContent = "Bulawayo,Zimbabwe";
-
-  const heroCity = document.createElement("h2");
-  heroCity.id = "hero-city";
-  heroCity.textContent = "Bulawayo"
-
-  const heroDate = document.createElement("p");
-  heroDate.id = "hero-date";
-  heroDate.textContent = "Thursday,November 26"
-
-  const temperatureRow = document.createElement("div");
-  temperatureRow.id = "temperature-row";
-
-  const temperature = document.createElement("span");
-  temperature.id = "temperature";
-  temperature.textContent = `68°`;
-
-  const conditionsContainer = document.createElement("div");
-  conditionsContainer.id = "conditions-container";
-
-  const heroConditions = document.createElement("p");
-  heroConditions.id = "hero-conditions";
-  heroConditions.textContent = "Overcast";
-
-  const heroFeels = document.createElement("p");
-  heroFeels.id = "hero-feels";
-  heroFeels.textContent = `Feels like ${51}°`;
-
-  const heroWeatherImg = document.createElement("div");
-  heroWeatherImg.id = "hero-weather-img-cont";
-
-  conditionsContainer.append(heroConditions,heroFeels);
-  temperatureRow.append(temperature, conditionsContainer)
-  placeRow.append(locationMark,heroLocation);
-  heroCopy.append(placeRow,heroCity,heroDate, temperatureRow);
-  heroCard.append(heroCopy,heroWeatherImg);
-
-
-  weatherContent.append(heroCard);
-  content.append(intro,searchWrap,weatherContent);
+   content.append(intro,searchWrap,weatherContent);
 
   return [topBar,content];
 })();
