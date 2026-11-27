@@ -13,7 +13,6 @@ export async function fetchTempData(cleanUserInput) {
     fetchedImperialPromise,
   ]);
 
-
   if (fetchedPromises.every((response) => response.ok)) {
     return fetchedPromises;
   } else {
@@ -21,7 +20,7 @@ export async function fetchTempData(cleanUserInput) {
   }
 }
 
-export async function parseFetchedData(response){
-        const [metricObjData,imperialObjData] = response;
-        return [await metricObjData.json(),await imperialObjData.json()];
-      }
+export async function parseFetchedData(response) {
+  const [metricObjData, imperialObjData] = response;
+  return [await metricObjData.json(), await imperialObjData.json()];
+}
