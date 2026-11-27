@@ -1,7 +1,8 @@
-async function fetchTempData(cleanUserInput) {
+export async function fetchTempData(cleanUserInput) {
   const [city, countryOrState] = cleanUserInput;
 
   const metricUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${countryOrState}?unitGroup=metric&include=current,days&elements=datetime,tempmax,tempmin,temp,humidity,conditions,sunrise,sunset&contentType=json`;
+
   const imperialUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${countryOrState}?unitGroup=us&include=current,days&elements=datetime,tempmax,tempmin,temp,humidity,conditions,sunrise,sunset&contentType=json`;
 
   const fetchedMetricPromise = fetch(metricUrl);
@@ -12,6 +13,7 @@ async function fetchTempData(cleanUserInput) {
     fetchedImperialPromise,
   ]);
 
+
   if (fetchedPromises.every((response) => response.ok)) {
     return fetchedPromises;
   } else {
@@ -19,7 +21,7 @@ async function fetchTempData(cleanUserInput) {
   }
 }
 
-async function parseFetchedData(response){
+export async function parseFetchedData(response){
         const [metricObjData,imperialObjData] = response;
         return [await metricObjData.json(),await imperialObjData.json()];
       }
