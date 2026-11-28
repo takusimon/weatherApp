@@ -8,6 +8,7 @@ const searchInput = content.querySelector("#search-input");
 const searchError = content.querySelector("#search-error");
 const searchButton = content.querySelector("#search-button");
 const form = content.querySelector("#search-form");
+const circle = content.querySelector("#loading-circle");
 
 let parsedWeatherData;
 
@@ -27,19 +28,22 @@ searchButton.addEventListener("click",async (event)=> {
     let weatherData;
     searchError.textContent = "";
     form.reset();
-    //loading animation
+    circle.classList.add("visible");
+
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
     try {
-      console.log("Fetching Data...");
+      
       weatherData = await fetchTempData(cleanedInput);
     } catch (error) {
       searchError.textContent = error.message;
       return;
     }
-    console.log("Parsing Data...")
+    
     parsedWeatherData = await parseFetchedData(weatherData);
-    //Stop Animation
-    //Render Content
-    console.log(parsedWeatherData);
+    
+    circle.classList.remove("visible");
+    
     renderWeather(parsedWeatherData[1]);
   } else {
     showInputError();

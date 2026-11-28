@@ -112,5 +112,18 @@ sunsetIconPath.setAttribute("d",sunsetD);
 sunsetIcon.append(sunsetIconPath);
 
 
-export {brandIcon,searchIcon,locationIcon,humidityIcon,windIcon,waterIcon,sunsetIcon}
+const loadingCircle = document.createElementNS(svgNS,"svg");
+loadingCircle.setAttribute("width","280");
+loadingCircle.setAttribute("height","280");
+
+const circle = document.createElementNS(svgNS,"circle");
+circle.id = "loading-circle";
+circle.setAttribute("cx","140");
+circle.setAttribute("cy","140");
+circle.setAttribute("r","70");
+circle.classList.add("spinning");
+
+loadingCircle.appendChild(circle)
+
+export {brandIcon,searchIcon,locationIcon,humidityIcon,windIcon,waterIcon,sunsetIcon,loadingCircle}
 

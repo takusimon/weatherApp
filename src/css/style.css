@@ -276,3 +276,24 @@ body {
     font-weight:400;
     letter-spacing: normal;
 }
+@keyframes casinoLights {
+    from {
+        stroke-dashoffset:0;
+    }
+    to {
+        stroke-dashoffset:8;
+    }
+}
+
+circle:not(.visible){
+    display:none;
+}
+.spinning.visible{
+    fill:none;
+    stroke: var(--secondary);
+    stroke-width: 12px;
+    stroke-dasharray: 3,8;
+    stroke-linecap: butt;
+    animation:
+        casinoLights 200ms linear infinite;
+}

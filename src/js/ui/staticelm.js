@@ -1,6 +1,7 @@
 import {
   brandIcon,
   searchIcon,
+  loadingCircle
 } from "./svgIcons.js";
 
 export default (function () {
@@ -79,7 +80,7 @@ export default (function () {
   const weatherContent = document.createElement("div");
   weatherContent.id = "weather-content";
 
-
+  weatherContent.append(loadingCircle);
   content.append(intro, searchWrap, weatherContent);
 
   return { topBar, content };
