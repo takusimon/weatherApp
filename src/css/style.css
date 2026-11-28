@@ -297,3 +297,13 @@ circle:not(.visible){
     animation:
         casinoLights 200ms linear infinite;
 }
+
+footer {
+    grid-row:3/4;
+    grid-column: 2/3;
+    display: grid;
+    grid-auto-flow: column;
+    gap:.5rem;
+    align-content: center;
+    justify-content: center;
+}

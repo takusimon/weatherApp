@@ -83,5 +83,15 @@ export default (function () {
   weatherContent.append(loadingCircle);
   content.append(intro, searchWrap, weatherContent);
 
-  return { topBar, content };
+  const bottomBar = document.createElement("footer");
+  bottomBar.id = "bottom-bar";
+  bottomBar.textContent = "Weather information brought to you by ";
+
+  const visualCrossingLink = document.createElement("a");
+  visualCrossingLink.href = "https://www.visualcrossing.com/";
+  visualCrossingLink.textContent = "Visual Crossing";
+
+  bottomBar.appendChild(visualCrossingLink);
+
+  return { topBar, content,bottomBar};
 })();
