@@ -1,7 +1,14 @@
-import {brandIcon,searchIcon,locationIcon,humidityIcon,windIcon} from "./svgIcons.js";
+import {
+  brandIcon,
+  searchIcon,
+  locationIcon,
+  humidityIcon,
+  windIcon,
+  waterIcon,
+  sunsetIcon
+} from "./svgIcons.js";
 
 export default (function () {
-  
   //Begin Header Section
   const topBar = document.createElement("header");
   topBar.id = "topbar";
@@ -39,11 +46,10 @@ export default (function () {
 
   const introCopy = document.createElement("p");
   introCopy.id = "intro-copy";
-  introCopy.textContent = "Search Any City in the world for a clear simple forecast.";
-  
-  intro.append(eyebrow,heading,introCopy);
+  introCopy.textContent =
+    "Search Any City in the world for a clear simple forecast.";
 
-  
+  intro.append(eyebrow, heading, introCopy);
 
   const searchWrap = document.createElement("div");
   searchWrap.id = "search-wrap";
@@ -53,14 +59,15 @@ export default (function () {
   searchForm.noValidate = true;
 
   const searchLabel = document.createElement("label");
-  searchLabel.id = "search-label"
+  searchLabel.id = "search-label";
   searchLabel.htmlFor = "search-input";
   searchLabel.append(searchIcon);
 
   const searchInput = document.createElement("input");
   searchInput.id = "search-input";
   searchInput.type = "search";
-  searchInput.placeholder = "City,Country/State e.g. Paris,France or Frisco,Texas";
+  searchInput.placeholder =
+    "City,Country/State e.g. Paris,France or Frisco,Texas";
 
   const SearchButton = document.createElement("button");
   SearchButton.id = "search-button";
@@ -70,12 +77,10 @@ export default (function () {
   SearchErr.id = "search-error";
   SearchErr.textContent = "";
 
-  searchForm.append(searchLabel,searchInput,SearchButton);
-  searchWrap.append(searchForm,SearchErr);
+  searchForm.append(searchLabel, searchInput, SearchButton);
+  searchWrap.append(searchForm, SearchErr);
 
-  
-  
- //weather Content Section
+  //weather Content Section
   const weatherContent = document.createElement("div");
   weatherContent.id = "weather-content";
 
@@ -84,7 +89,7 @@ export default (function () {
 
   const heroCopy = document.createElement("div");
   heroCopy.id = "hero-copy";
-  
+
   const placeRow = document.createElement("div");
   placeRow.id = "place-row";
 
@@ -98,11 +103,11 @@ export default (function () {
 
   const heroCity = document.createElement("h2");
   heroCity.id = "hero-city";
-  heroCity.textContent = "Bulawayo"
+  heroCity.textContent = "Bulawayo";
 
   const heroDate = document.createElement("p");
   heroDate.id = "hero-date";
-  heroDate.textContent = "Thursday,November 26"
+  heroDate.textContent = "Thursday,November 26";
 
   const temperatureRow = document.createElement("div");
   temperatureRow.id = "temperature-row";
@@ -146,43 +151,68 @@ export default (function () {
   humidityValue.className = "detail-value";
   humidityValue.textContent = "84%";
 
-
-  detailsCont.append(humidityLabel,humidityValue);
-  humidityCard.append(humidityIconCont,detailsCont);
+  detailsCont.append(humidityLabel, humidityValue);
+  humidityCard.append(humidityIconCont, detailsCont);
 
   const windCard = document.createElement("div");
   windCard.className = "detail-card";
-
   const windIconCont = document.createElement("span");
   windIconCont.className = "detail-icon";
   windIconCont.append(windIcon);
-
   const windDetailsCont = document.createElement("div");
   windDetailsCont.id = "details-cont";
-
   const windLabel = document.createElement("p");
   windLabel.className = "detail-label";
   windLabel.textContent = "WIND";
-
   const windValue = document.createElement("p");
   windValue.className = "detail-value";
   windValue.textContent = "84%";
+  windDetailsCont.append(windLabel, windValue);
+  windCard.append(windIconCont, windDetailsCont);
 
-  windDetailsCont.append(windLabel,windValue);
-  windCard.append(windIconCont,windDetailsCont);
+  const precipCard = document.createElement("div");
+  precipCard.className = "detail-card";
+  const precipIconCont = document.createElement("span");
+  precipIconCont.className = "detail-icon";
+  precipIconCont.append(waterIcon);
+  const precipDetailsCont = document.createElement("div");
+  precipDetailsCont.id = "details-cont";
+  const precipLabel = document.createElement("p");
+  precipLabel.className = "detail-label";
+  precipLabel.textContent = "PRECIPITATION";
+  const precipValue = document.createElement("p");
+  precipValue.className = "detail-value";
+  precipValue.textContent = "84%";
+  precipDetailsCont.append(precipLabel, precipValue);
+  precipCard.append(precipIconCont, precipDetailsCont);
 
-  detailsGrid.append(humidityCard,windCard);
+  const sunsetCard = document.createElement("div");
+  sunsetCard.className = "detail-card";
+  const sunsetIconCont = document.createElement("span");
+  sunsetIconCont.className = "detail-icon";
+  sunsetIconCont.append(sunsetIcon);
+  const sunsetDetailsCont = document.createElement("div");
+  sunsetDetailsCont.id = "details-cont";
+  const sunsetLabel = document.createElement("p");
+  sunsetLabel.className = "detail-label";
+  sunsetLabel.textContent = "SUNSET";
+  const sunsetValue = document.createElement("p");
+  sunsetValue.className = "detail-value";
+  sunsetValue.textContent = "84%";
+  sunsetDetailsCont.append(sunsetLabel, sunsetValue);
+  sunsetCard.append(sunsetIconCont, sunsetDetailsCont);
 
-  conditionsContainer.append(heroConditions,heroFeels);
-  temperatureRow.append(temperature, conditionsContainer)
-  placeRow.append(locationMark,heroLocation);
-  heroCopy.append(placeRow,heroCity,heroDate, temperatureRow);
-  heroCard.append(heroCopy,heroWeatherImg);
+  detailsGrid.append(humidityCard, windCard,precipCard,sunsetCard);
 
+  conditionsContainer.append(heroConditions, heroFeels);
+  temperatureRow.append(temperature, conditionsContainer);
+  placeRow.append(locationMark, heroLocation);
+  heroCopy.append(placeRow, heroCity, heroDate, temperatureRow);
+  heroCard.append(heroCopy, heroWeatherImg);
 
-  weatherContent.append(heroCard,detailsGrid);
+  weatherContent.append(heroCard, detailsGrid);
 
-   content.append(intro,searchWrap,weatherContent);
+  content.append(intro, searchWrap, weatherContent);
 
-  return {topBar,content};
+  return { topBar, content };
 })();

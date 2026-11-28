@@ -40,7 +40,7 @@ searchButton.addEventListener("click",async (event)=> {
     //Stop Animation
     //Render Content
     console.log(parsedWeatherData);
-    renderWeather(parsedWeatherData[0]);
+    renderWeather(parsedWeatherData[1]);
   } else {
     showInputError();
   }
