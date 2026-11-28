@@ -56,6 +56,11 @@ export function renderWeather (unitData){
 
   const heroWeatherImg = document.createElement("div");
   heroWeatherImg.id = "hero-weather-img-cont";
+  import(`../../icons/${today.icon}.svg`).then((resolve) => {
+    const img = document.createElement("img");
+    img.src = resolve.default;
+    heroWeatherImg.append(img);
+  })
 
   //Details
   const detailsGrid = document.createElement("section");
