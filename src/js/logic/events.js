@@ -9,6 +9,7 @@ const searchError = content.querySelector("#search-error");
 const searchButton = content.querySelector("#search-button");
 const form = content.querySelector("#search-form");
 const circle = content.querySelector("#loading-circle");
+const siUnitToggle = content.querySelector("#si-unit-toggle");
 
 let parsedWeatherData;
 
@@ -30,23 +31,38 @@ searchButton.addEventListener("click",async (event)=> {
     form.reset();
     circle.classList.add("visible");
 
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
     try {
       
       weatherData = await fetchTempData(cleanedInput);
     } catch (error) {
       searchError.textContent = error.message;
+      circle.classList.remove("visible");
       return;
     }
     
     parsedWeatherData = await parseFetchedData(weatherData);
     
     circle.classList.remove("visible");
-    
-    renderWeather(parsedWeatherData[1]);
+    if (siUnitToggle.textContent === "Switch to ℃"){
+      renderWeather(parsedWeatherData[1]);//Show Units in Fahrenheit
+    } else {
+      renderWeather(parsedWeatherData[0]);
+    }
+    siUnitToggle.classList.add("visible");
   } else {
     showInputError();
+  }
+})
+
+siUnitToggle.addEventListener("click",async () => {
+  if(siUnitToggle.textContent === "Switch to ℃"){
+    await renderWeather(parsedWeatherData[0]);
+    siUnitToggle.textContent = "Switch to ℉"
+  } else {
+    await renderWeather(parsedWeatherData[1]);
+    siUnitToggle.textContent = "Switch to ℃";
   }
 })
 

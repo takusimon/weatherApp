@@ -69,12 +69,17 @@ export default (function () {
   SearchButton.id = "search-button";
   SearchButton.textContent = "Search";
 
+  const siUnitToggle = document.createElement("button");
+  siUnitToggle.id = "si-unit-toggle";
+  siUnitToggle.textContent = "Switch to ℃"
+ 
+
   const SearchErr = document.createElement("span");
   SearchErr.id = "search-error";
   SearchErr.textContent = "";
 
   searchForm.append(searchLabel, searchInput, SearchButton);
-  searchWrap.append(searchForm, SearchErr);
+  searchWrap.append(searchForm, SearchErr,siUnitToggle);
 
   //weather Content Section
   const weatherContent = document.createElement("div");
